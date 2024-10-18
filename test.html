@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE YOUUU SOOO MUCHHHH</title>
+    <style>
+        body {
+            background-color: lightpink;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of the viewport */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            position: relative; /* Needed for absolute positioning of hearts */
+            overflow: hidden; /* Hide hearts that fly outside the viewport */
+        }
+        h1{
+            color: rgb(246, 58, 45);
+            line-height: 3;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: fly 5s infinite;
+        }
+        @keyframes fly {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100vh); }
+        }
+        button {
+            margin: 10px; /* Add some space around the buttons */
+            /* width: 100px; */
+            height: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #response{
+            color: rgb(246, 58, 45);
+            font-size: 35px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id = 'welcome'>Xin chào tiểu công chúa của tớ (❤ ω ❤)</h1>
+        <h1 id = 'question'>Cậu bít hôm nay là ngày gì hom nèee??</h1>
+        <button id="goodBtn">Cóaaaaa</button>
+        <button id="badBtn">Hommmm</button>
+        <p id="response"></p>
+    </div>
+
+    <script>
+        document.getElementById('goodBtn').addEventListener('click', function() {
+            document.getElementById('response').textContent = "Ỏhhh, chúc mừng meo meo ngày 20/10 nhaaaa";
+            hideElements(); // Call the function to hide elements
+        });
+
+        document.getElementById('badBtn').addEventListener('click', function() {
+            document.getElementById('response').textContent = "Đồ ngốccc, hôm nay là 20/10 á!! Chúc mừng cậu 20/10 nhaaa";
+            hideElements(); // Call the function to hide elements
+        });
+
+        function hideElements() {
+            document.getElementById('goodBtn').style.display = 'none'; // Hide GOOD button
+            document.getElementById('badBtn').style.display = 'none'; // Hide BAD button
+            document.getElementById('question').style.display = 'none'; // Hide the h1 element
+            document.getElementById('welcome').style.display = 'none';
+        }
+
+
+        // Function to generate hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            document.body.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 5000); // Match with the duration of the animation
+        }
+
+        // Generate hearts every second
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>
