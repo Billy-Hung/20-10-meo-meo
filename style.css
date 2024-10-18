@@ -1,0 +1,57 @@
+body {
+    background-color: #FFC5C5; /* light pink */
+}
+
+#question {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFB6C1; /* light pink hover */
+}
+
+#good {
+    background-color: #C5C9C7; /* light green */
+}
+
+#bad {
+    background-color: #FFC080; /* light orange */
+}
+
+#response {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    color: #FFC5C5; /* light pink */
+    animation: fly 5s infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100%, 100%);
+    }
+}
